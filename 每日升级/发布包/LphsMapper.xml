@@ -1,0 +1,1274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="web.boot.pj.mapper.fgj.house.LphsMapper">
+  <resultMap id="BaseResultMap" type="web.boot.pj.entity.house.Lphs">
+    <id column="LPHS_LSH" jdbcType="NUMERIC" property="lphsLsh" />
+    <result column="LPZ_LSH" jdbcType="NUMERIC" property="lpzLsh" />
+    <result column="HSTX" jdbcType="VARCHAR" property="hstx" />
+    <result column="CJH" jdbcType="VARCHAR" property="cjh" />
+    <result column="FWLX" jdbcType="VARCHAR" property="fwlx" />
+    <result column="FWYT" jdbcType="VARCHAR" property="fwyt" />
+    <result column="HSZL" jdbcType="VARCHAR" property="hszl" />
+    <result column="MYC" jdbcType="VARCHAR" property="myc" />
+    <result column="ZRC" jdbcType="NUMERIC" property="zrc" />
+    <result column="HSMS" jdbcType="VARCHAR" property="hsms" />
+    <result column="YHSMS" jdbcType="VARCHAR" property="yhsms" />
+    <result column="HSXH" jdbcType="VARCHAR" property="hsxh" />
+    <result column="NSJG" jdbcType="NUMERIC" property="nsjg" />
+    <result column="TXTBH" jdbcType="VARCHAR" property="txtbh" />
+    <result column="JZMJ" jdbcType="NUMERIC" property="jzmj" />
+    <result column="TNMJ" jdbcType="NUMERIC" property="tnmj" />
+    <result column="FTMJ" jdbcType="NUMERIC" property="ftmj" />
+    <result column="FWXZ" jdbcType="VARCHAR" property="fwxz" />
+    <result column="FWZXLX" jdbcType="VARCHAR" property="fwzxlx" />
+    <result column="SJYX" jdbcType="NUMERIC" property="sjyx" />
+    <result column="STATE1" jdbcType="NUMERIC" property="state1" />
+    <result column="STATE2" jdbcType="NUMERIC" property="state2" />
+    <result column="STATE3" jdbcType="NUMERIC" property="state3" />
+    <result column="STATE4" jdbcType="NUMERIC" property="state4" />
+    <result column="STATE5" jdbcType="NUMERIC" property="state5" />
+    <result column="STATE6" jdbcType="NUMERIC" property="state6" />
+    <result column="STATE7" jdbcType="NUMERIC" property="state7" />
+    <result column="STATE8" jdbcType="NUMERIC" property="state8" />
+    <result column="STATE9" jdbcType="NUMERIC" property="state9" />
+    <result column="STATE10" jdbcType="NUMERIC" property="state10" />
+    <result column="STATE11" jdbcType="NUMERIC" property="state11" />
+    <result column="STATE12" jdbcType="NUMERIC" property="state12" />
+    <result column="STATE13" jdbcType="NUMERIC" property="state13" />
+    <result column="STATE14" jdbcType="NUMERIC" property="state14" />
+    <result column="STATE15" jdbcType="NUMERIC" property="state15" />
+    <result column="STATE16" jdbcType="NUMERIC" property="state16" />
+    <result column="XXLX" jdbcType="NUMERIC" property="xxlx" />
+    <result column="HTLX" jdbcType="NUMERIC" property="htlx" />
+    <result column="BKSYY" jdbcType="VARCHAR" property="bksyy" />
+    <result column="GIS_LOCK" jdbcType="NUMERIC" property="gisLock" />
+    <result column="SFGGSS" jdbcType="NUMERIC" property="sfggss" />
+    <result column="ISFSW" jdbcType="NUMERIC" property="isfsw" />
+    <result column="FSWLX" jdbcType="VARCHAR" property="fswlx" />
+    <result column="FWMC" jdbcType="VARCHAR" property="fwmc" />
+    <result column="BZ" jdbcType="VARCHAR" property="bz" />
+    <result column="FJ" jdbcType="VARCHAR" property="fj" />
+    <result column="ZYMJ" jdbcType="VARCHAR" property="zymj" />
+    <result column="INSERTTIME" jdbcType="DATE" property="inserttime" />
+    <result column="HT_TYPE" jdbcType="VARCHAR" property="htType" />
+    <result column="ROW_TIMESTAMP" jdbcType="DATE" property="rowTimestamp" />
+    <result column="YHSZL" jdbcType="VARCHAR" property="yhszl" />
+    <result column="ZT" jdbcType="VARCHAR" property="zt" />
+    <result column="ADVANCE_STATE" jdbcType="NUMERIC" property="advanceState" />
+    <result column="DELETE_TIME" jdbcType="TIMESTAMP" property="deleteTime" />
+    <result column="EXAMINE_TIME" jdbcType="TIMESTAMP" property="examineTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="VENDIBILITY_STATE" jdbcType="NUMERIC" property="vendibilityState" />
+    <result column="CREATE_USER_ID" jdbcType="NUMERIC" property="createUserId" />
+    <result column="EXAMINE_USER_ID" jdbcType="NUMERIC" property="examineUserId" />
+    <result column="LPHS_LSHHD" jdbcType="NUMERIC" property="lphsLshhd" />
+    <result column="LPHS_LSHQD" jdbcType="VARCHAR" property="lphsLshqd" />
+    <result column="JZJG" jdbcType="VARCHAR" property="jzjg" />
+    <result column="CB" jdbcType="VARCHAR" property="cb" />
+    <result column="DJZT" jdbcType="NUMERIC" property="djzt" />
+    <result column="SZL" jdbcType="VARCHAR" property="szl" />
+    <!-- fetchType：lazy 懒加载  eager 立即加载 -->
+    <association property="lpz" column="LPZ_LSH" fetchType="lazy" select="web.boot.pj.mapper.fgj.house.LpzMapper.findById" />
+  </resultMap>
+  <resultMap id="BaseResultMapJoin" type="web.boot.pj.entity.house.Lphs">
+  	<id column="LPHS_LSH" jdbcType="NUMERIC" property="lphsLsh" />
+    <result column="LPZ_LSH" jdbcType="NUMERIC" property="lpzLsh" />
+    <result column="HSTX" jdbcType="VARCHAR" property="hstx" />
+    <result column="CJH" jdbcType="VARCHAR" property="cjh" />
+    <result column="FWLX" jdbcType="VARCHAR" property="fwlx" />
+    <result column="FWYT" jdbcType="VARCHAR" property="fwyt" />
+    <result column="HSZL" jdbcType="VARCHAR" property="hszl" />
+    <result column="MYC" jdbcType="VARCHAR" property="myc" />
+    <result column="ZRC" jdbcType="NUMERIC" property="zrc" />
+    <result column="HSMS" jdbcType="VARCHAR" property="hsms" />
+    <result column="YHSMS" jdbcType="VARCHAR" property="yhsms" />
+    <result column="HSXH" jdbcType="VARCHAR" property="hsxh" />
+    <result column="NSJG" jdbcType="NUMERIC" property="nsjg" />
+    <result column="TXTBH" jdbcType="VARCHAR" property="txtbh" />
+    <result column="JZMJ" jdbcType="NUMERIC" property="jzmj" />
+    <result column="TNMJ" jdbcType="NUMERIC" property="tnmj" />
+    <result column="FTMJ" jdbcType="NUMERIC" property="ftmj" />
+    <result column="FWXZ" jdbcType="VARCHAR" property="fwxz" />
+    <result column="FWZXLX" jdbcType="VARCHAR" property="fwzxlx" />
+    <result column="SJYX" jdbcType="NUMERIC" property="sjyx" />
+    <result column="STATE1" jdbcType="NUMERIC" property="state1" />
+    <result column="STATE2" jdbcType="NUMERIC" property="state2" />
+    <result column="STATE3" jdbcType="NUMERIC" property="state3" />
+    <result column="STATE4" jdbcType="NUMERIC" property="state4" />
+    <result column="STATE5" jdbcType="NUMERIC" property="state5" />
+    <result column="STATE6" jdbcType="NUMERIC" property="state6" />
+    <result column="STATE7" jdbcType="NUMERIC" property="state7" />
+    <result column="STATE8" jdbcType="NUMERIC" property="state8" />
+    <result column="STATE9" jdbcType="NUMERIC" property="state9" />
+    <result column="STATE10" jdbcType="NUMERIC" property="state10" />
+    <result column="STATE11" jdbcType="NUMERIC" property="state11" />
+    <result column="STATE12" jdbcType="NUMERIC" property="state12" />
+    <result column="STATE13" jdbcType="NUMERIC" property="state13" />
+    <result column="STATE14" jdbcType="NUMERIC" property="state14" />
+    <result column="STATE15" jdbcType="NUMERIC" property="state15" />
+    <result column="STATE16" jdbcType="NUMERIC" property="state16" />
+    <result column="XXLX" jdbcType="NUMERIC" property="xxlx" />
+    <result column="HTLX" jdbcType="NUMERIC" property="htlx" />
+    <result column="BKSYY" jdbcType="VARCHAR" property="bksyy" />
+    <result column="GIS_LOCK" jdbcType="NUMERIC" property="gisLock" />
+    <result column="SFGGSS" jdbcType="NUMERIC" property="sfggss" />
+    <result column="ISFSW" jdbcType="NUMERIC" property="isfsw" />
+    <result column="FSWLX" jdbcType="VARCHAR" property="fswlx" />
+    <result column="FWMC" jdbcType="VARCHAR" property="fwmc" />
+    <result column="BZ" jdbcType="VARCHAR" property="bz" />
+    <result column="FJ" jdbcType="VARCHAR" property="fj" />
+    <result column="ZYMJ" jdbcType="VARCHAR" property="zymj" />
+    <result column="INSERTTIME" jdbcType="DATE" property="inserttime" />
+    <result column="HT_TYPE" jdbcType="VARCHAR" property="htType" />
+    <result column="ROW_TIMESTAMP" jdbcType="DATE" property="rowTimestamp" />
+    <result column="YHSZL" jdbcType="VARCHAR" property="yhszl" />
+    <result column="ZT" jdbcType="VARCHAR" property="zt" />
+    <result column="ADVANCE_STATE" jdbcType="NUMERIC" property="advanceState" />
+    <result column="DELETE_TIME" jdbcType="TIMESTAMP" property="deleteTime" />
+    <result column="EXAMINE_TIME" jdbcType="TIMESTAMP" property="examineTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="VENDIBILITY_STATE" jdbcType="NUMERIC" property="vendibilityState" />
+    <result column="CREATE_USER_ID" jdbcType="NUMERIC" property="createUserId" />
+    <result column="EXAMINE_USER_ID" jdbcType="NUMERIC" property="examineUserId" />
+    <result column="LPHS_LSHHD" jdbcType="NUMERIC" property="lphsLshhd" />
+    <result column="LPHS_LSHQD" jdbcType="VARCHAR" property="lphsLshqd" />
+    <result column="JZJG" jdbcType="VARCHAR" property="jzjg" />
+    <result column="CB" jdbcType="VARCHAR" property="cb" />
+    <result column="DJZT" jdbcType="NUMERIC" property="djzt" />
+    <result column="SZL" jdbcType="VARCHAR" property="szl" />
+  	<result column="LPCSHS_LSH" jdbcType="NUMERIC" property="lpcshsLsh" />
+  	<result column="H_LPHS_LSH" jdbcType="NUMERIC" property="hLphsLsh" />
+    <result column="PERMISSION" jdbcType="NUMERIC" property="permission" />
+  </resultMap> 
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    LPHS.LPHS_LSH, LPHS.LPZ_LSH, HSTX, CJH, FWLX, FWYT, HSZL, MYC, ZRC, HSMS, YHSMS, HSXH, NSJG, 
+    TXTBH, JZMJ, TNMJ, FTMJ, FWXZ, FWZXLX, SJYX, STATE1, STATE2, STATE3, STATE4, STATE5, 
+    STATE6, STATE7, STATE8, STATE9, STATE10, STATE11, STATE12, STATE13, STATE14, STATE15, 
+    STATE16, XXLX, HTLX, BKSYY, GIS_LOCK, SFGGSS, ISFSW, FSWLX, FWMC, BZ, FJ, ZYMJ, INSERTTIME, 
+    HT_TYPE, LPHS.ROW_TIMESTAMP, YHSZL, ZT, ADVANCE_STATE, DELETE_TIME, EXAMINE_TIME, UPDATE_TIME, 
+    VENDIBILITY_STATE, CREATE_USER_ID, EXAMINE_USER_ID, LPHS_LSHHD, LPHS_LSHQD, JZJG, 
+    CB, DJZT, SZL
+  </sql>
+  <select id="findByExample" parameterType="web.boot.pj.entity.house.LphsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from REGISTRATION.LPHS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from REGISTRATION.LPHS
+    where LPHS_LSH = #{lphsLsh,jdbcType=NUMERIC}
+  </select>
+  
+  <select id="findByLphs" parameterType="web.boot.pj.entity.house.Lphs" resultMap="BaseResultMapJoin">
+    select 
+    <include refid="Base_Column_List" />,HOUSEANDHOUSE.LPCSHS_LSH,HOUSEANDHOUSE.LPHS_LSH H_LPHS_LSH
+    from REGISTRATION.LPHS left join REGISTRATION.HOUSEANDHOUSE on LPHS.LPHS_LSH = HOUSEANDHOUSE.LPCSHS_LSH and  HOUSEANDHOUSE.permission =1
+    where LPHS.LPZ_LSH = #{lpzLsh,jdbcType=NUMERIC} and LPHS.ISFSW=1
+    <if test="hsxh != null and hsxh != ''">
+       and LPHS.HSXH = #{hsxh,jdbcType=VARCHAR}
+    </if>
+    <if test="hsms != null and hsms != ''">
+       and LPHS.HSMS = #{hsms,jdbcType=VARCHAR}
+    </if>
+    <if test="state9 != null">
+      and LPHS.STATE9 = #{state9,jdbcType=NUMERIC}
+    </if>
+    <if test="djzt != null">
+      and LPHS.DJZT = #{djzt,jdbcType=NUMERIC} 
+    </if>
+    <!-- <if test="lphsLsp != null and lphsLsp != ''">
+       and (HOUSEANDHOUSE.LPHS_LSH = #{hLphsLsh,jdbcType=NUMERIC} or nvl(HOUSEANDHOUSE.LPHS_LSH,-1)=-1)
+    </if> -->
+    <if test="lphsLsh != null and lphsLsh != ''">
+       and HOUSEANDHOUSE.LPHS_LSH = #{lphsLsh,jdbcType=NUMERIC}
+    </if>
+    order by LPHS.LPHS_LSH
+  </select>
+
+  <delete id="deleteById" parameterType="java.lang.Long">
+    delete from REGISTRATION.LPHS
+    where LPHS_LSH = #{lphsLsh,jdbcType=NUMERIC}
+  </delete>
+  <delete id="deleteDataByExample" parameterType="web.boot.pj.entity.house.LphsExample">
+    delete from REGISTRATION.LPHS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insertData" parameterType="web.boot.pj.entity.house.Lphs">
+    <selectKey keyProperty="lphsLsh" order="AFTER" resultType="java.lang.Long">
+      Oracle
+    </selectKey>
+    insert into REGISTRATION.LPHS (LPZ_LSH, HSTX, CJH, 
+      FWLX, FWYT, HSZL, MYC, 
+      ZRC, HSMS, YHSMS, HSXH, 
+      NSJG, TXTBH, JZMJ, 
+      TNMJ, FTMJ, FWXZ, FWZXLX, 
+      SJYX, STATE1, STATE2, 
+      STATE3, STATE4, STATE5, 
+      STATE6, STATE7, STATE8, 
+      STATE9, STATE10, STATE11, 
+      STATE12, STATE13, STATE14, 
+      STATE15, STATE16, XXLX, 
+      HTLX, BKSYY, GIS_LOCK, 
+      SFGGSS, ISFSW, FSWLX, 
+      FWMC, BZ, FJ, ZYMJ, 
+      INSERTTIME, HT_TYPE, ROW_TIMESTAMP, 
+      YHSZL, ZT, ADVANCE_STATE, 
+      DELETE_TIME, EXAMINE_TIME, UPDATE_TIME, 
+      VENDIBILITY_STATE, CREATE_USER_ID, EXAMINE_USER_ID, 
+      LPHS_LSHHD, LPHS_LSHQD, JZJG, 
+      CB, DJZT, SZL
+      )
+    values (#{lpzLsh,jdbcType=NUMERIC}, #{hstx,jdbcType=VARCHAR}, #{cjh,jdbcType=VARCHAR}, 
+      #{fwlx,jdbcType=VARCHAR}, #{fwyt,jdbcType=VARCHAR}, #{hszl,jdbcType=VARCHAR}, #{myc,jdbcType=VARCHAR}, 
+      #{zrc,jdbcType=NUMERIC}, #{hsms,jdbcType=VARCHAR}, #{yhsms,jdbcType=VARCHAR}, #{hsxh,jdbcType=VARCHAR}, 
+      #{nsjg,jdbcType=NUMERIC}, #{txtbh,jdbcType=VARCHAR}, #{jzmj,jdbcType=NUMERIC}, 
+      #{tnmj,jdbcType=NUMERIC}, #{ftmj,jdbcType=NUMERIC}, #{fwxz,jdbcType=VARCHAR}, #{fwzxlx,jdbcType=VARCHAR}, 
+      #{sjyx,jdbcType=NUMERIC}, #{state1,jdbcType=NUMERIC}, #{state2,jdbcType=NUMERIC}, 
+      #{state3,jdbcType=NUMERIC}, #{state4,jdbcType=NUMERIC}, #{state5,jdbcType=NUMERIC}, 
+      #{state6,jdbcType=NUMERIC}, #{state7,jdbcType=NUMERIC}, #{state8,jdbcType=NUMERIC}, 
+      #{state9,jdbcType=NUMERIC}, #{state10,jdbcType=NUMERIC}, #{state11,jdbcType=NUMERIC}, 
+      #{state12,jdbcType=NUMERIC}, #{state13,jdbcType=NUMERIC}, #{state14,jdbcType=NUMERIC}, 
+      #{state15,jdbcType=NUMERIC}, #{state16,jdbcType=NUMERIC}, #{xxlx,jdbcType=NUMERIC}, 
+      #{htlx,jdbcType=NUMERIC}, #{bksyy,jdbcType=VARCHAR}, #{gisLock,jdbcType=NUMERIC}, 
+      #{sfggss,jdbcType=NUMERIC}, #{isfsw,jdbcType=NUMERIC}, #{fswlx,jdbcType=VARCHAR}, 
+      #{fwmc,jdbcType=VARCHAR}, #{bz,jdbcType=VARCHAR}, #{fj,jdbcType=VARCHAR}, #{zymj,jdbcType=VARCHAR}, 
+      #{inserttime,jdbcType=DATE}, #{htType,jdbcType=VARCHAR}, #{rowTimestamp,jdbcType=DATE}, 
+      #{yhszl,jdbcType=VARCHAR}, #{zt,jdbcType=VARCHAR}, #{advanceState,jdbcType=NUMERIC}, 
+      #{deleteTime,jdbcType=TIMESTAMP}, #{examineTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{vendibilityState,jdbcType=NUMERIC}, #{createUserId,jdbcType=NUMERIC}, #{examineUserId,jdbcType=NUMERIC}, 
+      #{lphsLshhd,jdbcType=NUMERIC}, #{lphsLshqd,jdbcType=VARCHAR}, #{jzjg,jdbcType=VARCHAR}, 
+      #{cb,jdbcType=VARCHAR}, #{djzt,jdbcType=NUMERIC}, #{szl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertDataSelective" parameterType="web.boot.pj.entity.house.Lphs">
+    <selectKey keyProperty="lphsLsh" order="AFTER" resultType="java.lang.Long">
+      Oracle
+    </selectKey>
+    insert into REGISTRATION.LPHS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lpzLsh != null">
+        LPZ_LSH,
+      </if>
+      <if test="hstx != null">
+        HSTX,
+      </if>
+      <if test="cjh != null">
+        CJH,
+      </if>
+      <if test="fwlx != null">
+        FWLX,
+      </if>
+      <if test="fwyt != null">
+        FWYT,
+      </if>
+      <if test="hszl != null">
+        HSZL,
+      </if>
+      <if test="myc != null">
+        MYC,
+      </if>
+      <if test="zrc != null">
+        ZRC,
+      </if>
+      <if test="hsms != null">
+        HSMS,
+      </if>
+      <if test="yhsms != null">
+        YHSMS,
+      </if>
+      <if test="hsxh != null">
+        HSXH,
+      </if>
+      <if test="nsjg != null">
+        NSJG,
+      </if>
+      <if test="txtbh != null">
+        TXTBH,
+      </if>
+      <if test="jzmj != null">
+        JZMJ,
+      </if>
+      <if test="tnmj != null">
+        TNMJ,
+      </if>
+      <if test="ftmj != null">
+        FTMJ,
+      </if>
+      <if test="fwxz != null">
+        FWXZ,
+      </if>
+      <if test="fwzxlx != null">
+        FWZXLX,
+      </if>
+      <if test="sjyx != null">
+        SJYX,
+      </if>
+      <if test="state1 != null">
+        STATE1,
+      </if>
+      <if test="state2 != null">
+        STATE2,
+      </if>
+      <if test="state3 != null">
+        STATE3,
+      </if>
+      <if test="state4 != null">
+        STATE4,
+      </if>
+      <if test="state5 != null">
+        STATE5,
+      </if>
+      <if test="state6 != null">
+        STATE6,
+      </if>
+      <if test="state7 != null">
+        STATE7,
+      </if>
+      <if test="state8 != null">
+        STATE8,
+      </if>
+      <if test="state9 != null">
+        STATE9,
+      </if>
+      <if test="state10 != null">
+        STATE10,
+      </if>
+      <if test="state11 != null">
+        STATE11,
+      </if>
+      <if test="state12 != null">
+        STATE12,
+      </if>
+      <if test="state13 != null">
+        STATE13,
+      </if>
+      <if test="state14 != null">
+        STATE14,
+      </if>
+      <if test="state15 != null">
+        STATE15,
+      </if>
+      <if test="state16 != null">
+        STATE16,
+      </if>
+      <if test="xxlx != null">
+        XXLX,
+      </if>
+      <if test="htlx != null">
+        HTLX,
+      </if>
+      <if test="bksyy != null">
+        BKSYY,
+      </if>
+      <if test="gisLock != null">
+        GIS_LOCK,
+      </if>
+      <if test="sfggss != null">
+        SFGGSS,
+      </if>
+      <if test="isfsw != null">
+        ISFSW,
+      </if>
+      <if test="fswlx != null">
+        FSWLX,
+      </if>
+      <if test="fwmc != null">
+        FWMC,
+      </if>
+      <if test="bz != null">
+        BZ,
+      </if>
+      <if test="fj != null">
+        FJ,
+      </if>
+      <if test="zymj != null">
+        ZYMJ,
+      </if>
+      <if test="inserttime != null">
+        INSERTTIME,
+      </if>
+      <if test="htType != null">
+        HT_TYPE,
+      </if>
+      <if test="rowTimestamp != null">
+        ROW_TIMESTAMP,
+      </if>
+      <if test="yhszl != null">
+        YHSZL,
+      </if>
+      <if test="zt != null">
+        ZT,
+      </if>
+      <if test="advanceState != null">
+        ADVANCE_STATE,
+      </if>
+      <if test="deleteTime != null">
+        DELETE_TIME,
+      </if>
+      <if test="examineTime != null">
+        EXAMINE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="vendibilityState != null">
+        VENDIBILITY_STATE,
+      </if>
+      <if test="createUserId != null">
+        CREATE_USER_ID,
+      </if>
+      <if test="examineUserId != null">
+        EXAMINE_USER_ID,
+      </if>
+      <if test="lphsLshhd != null">
+        LPHS_LSHHD,
+      </if>
+      <if test="lphsLshqd != null">
+        LPHS_LSHQD,
+      </if>
+      <if test="jzjg != null">
+        JZJG,
+      </if>
+      <if test="cb != null">
+        CB,
+      </if>
+      <if test="djzt != null">
+        DJZT,
+      </if>
+      <if test="szl != null">
+        SZL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lpzLsh != null">
+        #{lpzLsh,jdbcType=NUMERIC},
+      </if>
+      <if test="hstx != null">
+        #{hstx,jdbcType=VARCHAR},
+      </if>
+      <if test="cjh != null">
+        #{cjh,jdbcType=VARCHAR},
+      </if>
+      <if test="fwlx != null">
+        #{fwlx,jdbcType=VARCHAR},
+      </if>
+      <if test="fwyt != null">
+        #{fwyt,jdbcType=VARCHAR},
+      </if>
+      <if test="hszl != null">
+        #{hszl,jdbcType=VARCHAR},
+      </if>
+      <if test="myc != null">
+        #{myc,jdbcType=VARCHAR},
+      </if>
+      <if test="zrc != null">
+        #{zrc,jdbcType=NUMERIC},
+      </if>
+      <if test="hsms != null">
+        #{hsms,jdbcType=VARCHAR},
+      </if>
+      <if test="yhsms != null">
+        #{yhsms,jdbcType=VARCHAR},
+      </if>
+      <if test="hsxh != null">
+        #{hsxh,jdbcType=VARCHAR},
+      </if>
+      <if test="nsjg != null">
+        #{nsjg,jdbcType=NUMERIC},
+      </if>
+      <if test="txtbh != null">
+        #{txtbh,jdbcType=VARCHAR},
+      </if>
+      <if test="jzmj != null">
+        #{jzmj,jdbcType=NUMERIC},
+      </if>
+      <if test="tnmj != null">
+        #{tnmj,jdbcType=NUMERIC},
+      </if>
+      <if test="ftmj != null">
+        #{ftmj,jdbcType=NUMERIC},
+      </if>
+      <if test="fwxz != null">
+        #{fwxz,jdbcType=VARCHAR},
+      </if>
+      <if test="fwzxlx != null">
+        #{fwzxlx,jdbcType=VARCHAR},
+      </if>
+      <if test="sjyx != null">
+        #{sjyx,jdbcType=NUMERIC},
+      </if>
+      <if test="state1 != null">
+        #{state1,jdbcType=NUMERIC},
+      </if>
+      <if test="state2 != null">
+        #{state2,jdbcType=NUMERIC},
+      </if>
+      <if test="state3 != null">
+        #{state3,jdbcType=NUMERIC},
+      </if>
+      <if test="state4 != null">
+        #{state4,jdbcType=NUMERIC},
+      </if>
+      <if test="state5 != null">
+        #{state5,jdbcType=NUMERIC},
+      </if>
+      <if test="state6 != null">
+        #{state6,jdbcType=NUMERIC},
+      </if>
+      <if test="state7 != null">
+        #{state7,jdbcType=NUMERIC},
+      </if>
+      <if test="state8 != null">
+        #{state8,jdbcType=NUMERIC},
+      </if>
+      <if test="state9 != null">
+        #{state9,jdbcType=NUMERIC},
+      </if>
+      <if test="state10 != null">
+        #{state10,jdbcType=NUMERIC},
+      </if>
+      <if test="state11 != null">
+        #{state11,jdbcType=NUMERIC},
+      </if>
+      <if test="state12 != null">
+        #{state12,jdbcType=NUMERIC},
+      </if>
+      <if test="state13 != null">
+        #{state13,jdbcType=NUMERIC},
+      </if>
+      <if test="state14 != null">
+        #{state14,jdbcType=NUMERIC},
+      </if>
+      <if test="state15 != null">
+        #{state15,jdbcType=NUMERIC},
+      </if>
+      <if test="state16 != null">
+        #{state16,jdbcType=NUMERIC},
+      </if>
+      <if test="xxlx != null">
+        #{xxlx,jdbcType=NUMERIC},
+      </if>
+      <if test="htlx != null">
+        #{htlx,jdbcType=NUMERIC},
+      </if>
+      <if test="bksyy != null">
+        #{bksyy,jdbcType=VARCHAR},
+      </if>
+      <if test="gisLock != null">
+        #{gisLock,jdbcType=NUMERIC},
+      </if>
+      <if test="sfggss != null">
+        #{sfggss,jdbcType=NUMERIC},
+      </if>
+      <if test="isfsw != null">
+        #{isfsw,jdbcType=NUMERIC},
+      </if>
+      <if test="fswlx != null">
+        #{fswlx,jdbcType=VARCHAR},
+      </if>
+      <if test="fwmc != null">
+        #{fwmc,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="fj != null">
+        #{fj,jdbcType=VARCHAR},
+      </if>
+      <if test="zymj != null">
+        #{zymj,jdbcType=VARCHAR},
+      </if>
+      <if test="inserttime != null">
+        #{inserttime,jdbcType=DATE},
+      </if>
+      <if test="htType != null">
+        #{htType,jdbcType=VARCHAR},
+      </if>
+      <if test="rowTimestamp != null">
+        #{rowTimestamp,jdbcType=DATE},
+      </if>
+      <if test="yhszl != null">
+        #{yhszl,jdbcType=VARCHAR},
+      </if>
+      <if test="zt != null">
+        #{zt,jdbcType=VARCHAR},
+      </if>
+      <if test="advanceState != null">
+        #{advanceState,jdbcType=NUMERIC},
+      </if>
+      <if test="deleteTime != null">
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examineTime != null">
+        #{examineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vendibilityState != null">
+        #{vendibilityState,jdbcType=NUMERIC},
+      </if>
+      <if test="createUserId != null">
+        #{createUserId,jdbcType=NUMERIC},
+      </if>
+      <if test="examineUserId != null">
+        #{examineUserId,jdbcType=NUMERIC},
+      </if>
+      <if test="lphsLshhd != null">
+        #{lphsLshhd,jdbcType=NUMERIC},
+      </if>
+      <if test="lphsLshqd != null">
+        #{lphsLshqd,jdbcType=VARCHAR},
+      </if>
+      <if test="jzjg != null">
+        #{jzjg,jdbcType=VARCHAR},
+      </if>
+      <if test="cb != null">
+        #{cb,jdbcType=VARCHAR},
+      </if>
+      <if test="djzt != null">
+        #{djzt,jdbcType=NUMERIC},
+      </if>
+      <if test="szl != null">
+        #{szl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <select id="countDataByExample" parameterType="web.boot.pj.entity.house.LphsExample" resultType="java.lang.Long">
+    select count(*) from REGISTRATION.LPHS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateDataByExampleSelective" parameterType="map">
+    update REGISTRATION.LPHS
+    <set>
+      <if test="record.lphsLsh != null">
+        LPHS_LSH = #{record.lphsLsh,jdbcType=NUMERIC},
+      </if>
+      <if test="record.lpzLsh != null">
+        LPZ_LSH = #{record.lpzLsh,jdbcType=NUMERIC},
+      </if>
+      <if test="record.hstx != null">
+        HSTX = #{record.hstx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cjh != null">
+        CJH = #{record.cjh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fwlx != null">
+        FWLX = #{record.fwlx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fwyt != null">
+        FWYT = #{record.fwyt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hszl != null">
+        HSZL = #{record.hszl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.myc != null">
+        MYC = #{record.myc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zrc != null">
+        ZRC = #{record.zrc,jdbcType=NUMERIC},
+      </if>
+      <if test="record.hsms != null">
+        HSMS = #{record.hsms,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yhsms != null">
+        YHSMS = #{record.yhsms,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hsxh != null">
+        HSXH = #{record.hsxh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nsjg != null">
+        NSJG = #{record.nsjg,jdbcType=NUMERIC},
+      </if>
+      <if test="record.txtbh != null">
+        TXTBH = #{record.txtbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jzmj != null">
+        JZMJ = #{record.jzmj,jdbcType=NUMERIC},
+      </if>
+      <if test="record.tnmj != null">
+        TNMJ = #{record.tnmj,jdbcType=NUMERIC},
+      </if>
+      <if test="record.ftmj != null">
+        FTMJ = #{record.ftmj,jdbcType=NUMERIC},
+      </if>
+      <if test="record.fwxz != null">
+        FWXZ = #{record.fwxz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fwzxlx != null">
+        FWZXLX = #{record.fwzxlx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sjyx != null">
+        SJYX = #{record.sjyx,jdbcType=NUMERIC},
+      </if>
+      <if test="record.state1 != null">
+        STATE1 = #{record.state1,jdbcType=NUMERIC},
+      </if>
+      <if test="record.state2 != null">
+        STATE2 = #{record.state2,jdbcType=NUMERIC},
+      </if>
+      <if test="record.state3 != null">
+        STATE3 = #{record.state3,jdbcType=NUMERIC},
+      </if>
+      <if test="record.state4 != null">
+        STATE4 = #{record.state4,jdbcType=NUMERIC},
+      </if>
+      <if test="record.state5 != null">
+        STATE5 = #{record.state5,jdbcType=NUMERIC},
+      </if>
+      <if test="record.state6 != null">
+        STATE6 = #{record.state6,jdbcType=NUMERIC},
+      </if>
+      <if test="record.state7 != null">
+        STATE7 = #{record.state7,jdbcType=NUMERIC},
+      </if>
+      <if test="record.state8 != null">
+        STATE8 = #{record.state8,jdbcType=NUMERIC},
+      </if>
+      <if test="record.state9 != null">
+        STATE9 = #{record.state9,jdbcType=NUMERIC},
+      </if>
+      <if test="record.state10 != null">
+        STATE10 = #{record.state10,jdbcType=NUMERIC},
+      </if>
+      <if test="record.state11 != null">
+        STATE11 = #{record.state11,jdbcType=NUMERIC},
+      </if>
+      <if test="record.state12 != null">
+        STATE12 = #{record.state12,jdbcType=NUMERIC},
+      </if>
+      <if test="record.state13 != null">
+        STATE13 = #{record.state13,jdbcType=NUMERIC},
+      </if>
+      <if test="record.state14 != null">
+        STATE14 = #{record.state14,jdbcType=NUMERIC},
+      </if>
+      <if test="record.state15 != null">
+        STATE15 = #{record.state15,jdbcType=NUMERIC},
+      </if>
+      <if test="record.state16 != null">
+        STATE16 = #{record.state16,jdbcType=NUMERIC},
+      </if>
+      <if test="record.xxlx != null">
+        XXLX = #{record.xxlx,jdbcType=NUMERIC},
+      </if>
+      <if test="record.htlx != null">
+        HTLX = #{record.htlx,jdbcType=NUMERIC},
+      </if>
+      <if test="record.bksyy != null">
+        BKSYY = #{record.bksyy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gisLock != null">
+        GIS_LOCK = #{record.gisLock,jdbcType=NUMERIC},
+      </if>
+      <if test="record.sfggss != null">
+        SFGGSS = #{record.sfggss,jdbcType=NUMERIC},
+      </if>
+      <if test="record.isfsw != null">
+        ISFSW = #{record.isfsw,jdbcType=NUMERIC},
+      </if>
+      <if test="record.fswlx != null">
+        FSWLX = #{record.fswlx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fwmc != null">
+        FWMC = #{record.fwmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bz != null">
+        BZ = #{record.bz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fj != null">
+        FJ = #{record.fj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zymj != null">
+        ZYMJ = #{record.zymj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inserttime != null">
+        INSERTTIME = #{record.inserttime,jdbcType=DATE},
+      </if>
+      <if test="record.htType != null">
+        HT_TYPE = #{record.htType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rowTimestamp != null">
+        ROW_TIMESTAMP = #{record.rowTimestamp,jdbcType=DATE},
+      </if>
+      <if test="record.yhszl != null">
+        YHSZL = #{record.yhszl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zt != null">
+        ZT = #{record.zt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.advanceState != null">
+        ADVANCE_STATE = #{record.advanceState,jdbcType=NUMERIC},
+      </if>
+      <if test="record.deleteTime != null">
+        DELETE_TIME = #{record.deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.examineTime != null">
+        EXAMINE_TIME = #{record.examineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.vendibilityState != null">
+        VENDIBILITY_STATE = #{record.vendibilityState,jdbcType=NUMERIC},
+      </if>
+      <if test="record.createUserId != null">
+        CREATE_USER_ID = #{record.createUserId,jdbcType=NUMERIC},
+      </if>
+      <if test="record.examineUserId != null">
+        EXAMINE_USER_ID = #{record.examineUserId,jdbcType=NUMERIC},
+      </if>
+      <if test="record.lphsLshhd != null">
+        LPHS_LSHHD = #{record.lphsLshhd,jdbcType=NUMERIC},
+      </if>
+      <if test="record.lphsLshqd != null">
+        LPHS_LSHQD = #{record.lphsLshqd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jzjg != null">
+        JZJG = #{record.jzjg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cb != null">
+        CB = #{record.cb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.djzt != null">
+        DJZT = #{record.djzt,jdbcType=NUMERIC},
+      </if>
+      <if test="record.szl != null">
+        SZL = #{record.szl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateDataByExample" parameterType="map">
+    update REGISTRATION.LPHS
+    set LPHS_LSH = #{record.lphsLsh,jdbcType=NUMERIC},
+      LPZ_LSH = #{record.lpzLsh,jdbcType=NUMERIC},
+      HSTX = #{record.hstx,jdbcType=VARCHAR},
+      CJH = #{record.cjh,jdbcType=VARCHAR},
+      FWLX = #{record.fwlx,jdbcType=VARCHAR},
+      FWYT = #{record.fwyt,jdbcType=VARCHAR},
+      HSZL = #{record.hszl,jdbcType=VARCHAR},
+      MYC = #{record.myc,jdbcType=VARCHAR},
+      ZRC = #{record.zrc,jdbcType=NUMERIC},
+      HSMS = #{record.hsms,jdbcType=VARCHAR},
+      YHSMS = #{record.yhsms,jdbcType=VARCHAR},
+      HSXH = #{record.hsxh,jdbcType=VARCHAR},
+      NSJG = #{record.nsjg,jdbcType=NUMERIC},
+      TXTBH = #{record.txtbh,jdbcType=VARCHAR},
+      JZMJ = #{record.jzmj,jdbcType=NUMERIC},
+      TNMJ = #{record.tnmj,jdbcType=NUMERIC},
+      FTMJ = #{record.ftmj,jdbcType=NUMERIC},
+      FWXZ = #{record.fwxz,jdbcType=VARCHAR},
+      FWZXLX = #{record.fwzxlx,jdbcType=VARCHAR},
+      SJYX = #{record.sjyx,jdbcType=NUMERIC},
+      STATE1 = #{record.state1,jdbcType=NUMERIC},
+      STATE2 = #{record.state2,jdbcType=NUMERIC},
+      STATE3 = #{record.state3,jdbcType=NUMERIC},
+      STATE4 = #{record.state4,jdbcType=NUMERIC},
+      STATE5 = #{record.state5,jdbcType=NUMERIC},
+      STATE6 = #{record.state6,jdbcType=NUMERIC},
+      STATE7 = #{record.state7,jdbcType=NUMERIC},
+      STATE8 = #{record.state8,jdbcType=NUMERIC},
+      STATE9 = #{record.state9,jdbcType=NUMERIC},
+      STATE10 = #{record.state10,jdbcType=NUMERIC},
+      STATE11 = #{record.state11,jdbcType=NUMERIC},
+      STATE12 = #{record.state12,jdbcType=NUMERIC},
+      STATE13 = #{record.state13,jdbcType=NUMERIC},
+      STATE14 = #{record.state14,jdbcType=NUMERIC},
+      STATE15 = #{record.state15,jdbcType=NUMERIC},
+      STATE16 = #{record.state16,jdbcType=NUMERIC},
+      XXLX = #{record.xxlx,jdbcType=NUMERIC},
+      HTLX = #{record.htlx,jdbcType=NUMERIC},
+      BKSYY = #{record.bksyy,jdbcType=VARCHAR},
+      GIS_LOCK = #{record.gisLock,jdbcType=NUMERIC},
+      SFGGSS = #{record.sfggss,jdbcType=NUMERIC},
+      ISFSW = #{record.isfsw,jdbcType=NUMERIC},
+      FSWLX = #{record.fswlx,jdbcType=VARCHAR},
+      FWMC = #{record.fwmc,jdbcType=VARCHAR},
+      BZ = #{record.bz,jdbcType=VARCHAR},
+      FJ = #{record.fj,jdbcType=VARCHAR},
+      ZYMJ = #{record.zymj,jdbcType=VARCHAR},
+      INSERTTIME = #{record.inserttime,jdbcType=DATE},
+      HT_TYPE = #{record.htType,jdbcType=VARCHAR},
+      ROW_TIMESTAMP = #{record.rowTimestamp,jdbcType=DATE},
+      YHSZL = #{record.yhszl,jdbcType=VARCHAR},
+      ZT = #{record.zt,jdbcType=VARCHAR},
+      ADVANCE_STATE = #{record.advanceState,jdbcType=NUMERIC},
+      DELETE_TIME = #{record.deleteTime,jdbcType=TIMESTAMP},
+      EXAMINE_TIME = #{record.examineTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      VENDIBILITY_STATE = #{record.vendibilityState,jdbcType=NUMERIC},
+      CREATE_USER_ID = #{record.createUserId,jdbcType=NUMERIC},
+      EXAMINE_USER_ID = #{record.examineUserId,jdbcType=NUMERIC},
+      LPHS_LSHHD = #{record.lphsLshhd,jdbcType=NUMERIC},
+      LPHS_LSHQD = #{record.lphsLshqd,jdbcType=VARCHAR},
+      JZJG = #{record.jzjg,jdbcType=VARCHAR},
+      CB = #{record.cb,jdbcType=VARCHAR},
+      DJZT = #{record.djzt,jdbcType=NUMERIC},
+      SZL = #{record.szl,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateDataByIdSelective" parameterType="web.boot.pj.entity.house.Lphs">
+    update REGISTRATION.LPHS
+    <set>
+      <if test="lpzLsh != null">
+        LPZ_LSH = #{lpzLsh,jdbcType=NUMERIC},
+      </if>
+      <if test="hstx != null">
+        HSTX = #{hstx,jdbcType=VARCHAR},
+      </if>
+      <if test="cjh != null">
+        CJH = #{cjh,jdbcType=VARCHAR},
+      </if>
+      <if test="fwlx != null">
+        FWLX = #{fwlx,jdbcType=VARCHAR},
+      </if>
+      <if test="fwyt != null">
+        FWYT = #{fwyt,jdbcType=VARCHAR},
+      </if>
+      <if test="hszl != null">
+        HSZL = #{hszl,jdbcType=VARCHAR},
+      </if>
+      <if test="myc != null">
+        MYC = #{myc,jdbcType=VARCHAR},
+      </if>
+      <if test="zrc != null">
+        ZRC = #{zrc,jdbcType=NUMERIC},
+      </if>
+      <if test="hsms != null">
+        HSMS = #{hsms,jdbcType=VARCHAR},
+      </if>
+      <if test="yhsms != null">
+        YHSMS = #{yhsms,jdbcType=VARCHAR},
+      </if>
+      <if test="hsxh != null">
+        HSXH = #{hsxh,jdbcType=VARCHAR},
+      </if>
+      <if test="nsjg != null">
+        NSJG = #{nsjg,jdbcType=NUMERIC},
+      </if>
+      <if test="txtbh != null">
+        TXTBH = #{txtbh,jdbcType=VARCHAR},
+      </if>
+      <if test="jzmj != null">
+        JZMJ = #{jzmj,jdbcType=NUMERIC},
+      </if>
+      <if test="tnmj != null">
+        TNMJ = #{tnmj,jdbcType=NUMERIC},
+      </if>
+      <if test="ftmj != null">
+        FTMJ = #{ftmj,jdbcType=NUMERIC},
+      </if>
+      <if test="fwxz != null">
+        FWXZ = #{fwxz,jdbcType=VARCHAR},
+      </if>
+      <if test="fwzxlx != null">
+        FWZXLX = #{fwzxlx,jdbcType=VARCHAR},
+      </if>
+      <if test="sjyx != null">
+        SJYX = #{sjyx,jdbcType=NUMERIC},
+      </if>
+      <if test="state1 != null">
+        STATE1 = #{state1,jdbcType=NUMERIC},
+      </if>
+      <if test="state2 != null">
+        STATE2 = #{state2,jdbcType=NUMERIC},
+      </if>
+      <if test="state3 != null">
+        STATE3 = #{state3,jdbcType=NUMERIC},
+      </if>
+      <if test="state4 != null">
+        STATE4 = #{state4,jdbcType=NUMERIC},
+      </if>
+      <if test="state5 != null">
+        STATE5 = #{state5,jdbcType=NUMERIC},
+      </if>
+      <if test="state6 != null">
+        STATE6 = #{state6,jdbcType=NUMERIC},
+      </if>
+      <if test="state7 != null">
+        STATE7 = #{state7,jdbcType=NUMERIC},
+      </if>
+      <if test="state8 != null">
+        STATE8 = #{state8,jdbcType=NUMERIC},
+      </if>
+      <if test="state9 != null">
+        STATE9 = #{state9,jdbcType=NUMERIC},
+      </if>
+      <if test="state10 != null">
+        STATE10 = #{state10,jdbcType=NUMERIC},
+      </if>
+      <if test="state11 != null">
+        STATE11 = #{state11,jdbcType=NUMERIC},
+      </if>
+      <if test="state12 != null">
+        STATE12 = #{state12,jdbcType=NUMERIC},
+      </if>
+      <if test="state13 != null">
+        STATE13 = #{state13,jdbcType=NUMERIC},
+      </if>
+      <if test="state14 != null">
+        STATE14 = #{state14,jdbcType=NUMERIC},
+      </if>
+      <if test="state15 != null">
+        STATE15 = #{state15,jdbcType=NUMERIC},
+      </if>
+      <if test="state16 != null">
+        STATE16 = #{state16,jdbcType=NUMERIC},
+      </if>
+      <if test="xxlx != null">
+        XXLX = #{xxlx,jdbcType=NUMERIC},
+      </if>
+      <if test="htlx != null">
+        HTLX = #{htlx,jdbcType=NUMERIC},
+      </if>
+      <if test="bksyy != null">
+        BKSYY = #{bksyy,jdbcType=VARCHAR},
+      </if>
+      <if test="gisLock != null">
+        GIS_LOCK = #{gisLock,jdbcType=NUMERIC},
+      </if>
+      <if test="sfggss != null">
+        SFGGSS = #{sfggss,jdbcType=NUMERIC},
+      </if>
+      <if test="isfsw != null">
+        ISFSW = #{isfsw,jdbcType=NUMERIC},
+      </if>
+      <if test="fswlx != null">
+        FSWLX = #{fswlx,jdbcType=VARCHAR},
+      </if>
+      <if test="fwmc != null">
+        FWMC = #{fwmc,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null">
+        BZ = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="fj != null">
+        FJ = #{fj,jdbcType=VARCHAR},
+      </if>
+      <if test="zymj != null">
+        ZYMJ = #{zymj,jdbcType=VARCHAR},
+      </if>
+      <if test="inserttime != null">
+        INSERTTIME = #{inserttime,jdbcType=DATE},
+      </if>
+      <if test="htType != null">
+        HT_TYPE = #{htType,jdbcType=VARCHAR},
+      </if>
+      <if test="rowTimestamp != null">
+        ROW_TIMESTAMP = #{rowTimestamp,jdbcType=DATE},
+      </if>
+      <if test="yhszl != null">
+        YHSZL = #{yhszl,jdbcType=VARCHAR},
+      </if>
+      <if test="zt != null">
+        ZT = #{zt,jdbcType=VARCHAR},
+      </if>
+      <if test="advanceState != null">
+        ADVANCE_STATE = #{advanceState,jdbcType=NUMERIC},
+      </if>
+      <if test="deleteTime != null">
+        DELETE_TIME = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examineTime != null">
+        EXAMINE_TIME = #{examineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vendibilityState != null">
+        VENDIBILITY_STATE = #{vendibilityState,jdbcType=NUMERIC},
+      </if>
+      <if test="createUserId != null">
+        CREATE_USER_ID = #{createUserId,jdbcType=NUMERIC},
+      </if>
+      <if test="examineUserId != null">
+        EXAMINE_USER_ID = #{examineUserId,jdbcType=NUMERIC},
+      </if>
+      <if test="lphsLshhd != null">
+        LPHS_LSHHD = #{lphsLshhd,jdbcType=NUMERIC},
+      </if>
+      <if test="lphsLshqd != null">
+        LPHS_LSHQD = #{lphsLshqd,jdbcType=VARCHAR},
+      </if>
+      <if test="jzjg != null">
+        JZJG = #{jzjg,jdbcType=VARCHAR},
+      </if>
+      <if test="cb != null">
+        CB = #{cb,jdbcType=VARCHAR},
+      </if>
+      <if test="djzt != null">
+        DJZT = #{djzt,jdbcType=NUMERIC},
+      </if>
+      <if test="szl != null">
+        SZL = #{szl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where LPHS_LSH = #{lphsLsh,jdbcType=NUMERIC}
+  </update>
+  <update id="updateDataById" parameterType="web.boot.pj.entity.house.Lphs">
+    update REGISTRATION.LPHS
+    set LPZ_LSH = #{lpzLsh,jdbcType=NUMERIC},
+      HSTX = #{hstx,jdbcType=VARCHAR},
+      CJH = #{cjh,jdbcType=VARCHAR},
+      FWLX = #{fwlx,jdbcType=VARCHAR},
+      FWYT = #{fwyt,jdbcType=VARCHAR},
+      HSZL = #{hszl,jdbcType=VARCHAR},
+      MYC = #{myc,jdbcType=VARCHAR},
+      ZRC = #{zrc,jdbcType=NUMERIC},
+      HSMS = #{hsms,jdbcType=VARCHAR},
+      YHSMS = #{yhsms,jdbcType=VARCHAR},
+      HSXH = #{hsxh,jdbcType=VARCHAR},
+      NSJG = #{nsjg,jdbcType=NUMERIC},
+      TXTBH = #{txtbh,jdbcType=VARCHAR},
+      JZMJ = #{jzmj,jdbcType=NUMERIC},
+      TNMJ = #{tnmj,jdbcType=NUMERIC},
+      FTMJ = #{ftmj,jdbcType=NUMERIC},
+      FWXZ = #{fwxz,jdbcType=VARCHAR},
+      FWZXLX = #{fwzxlx,jdbcType=VARCHAR},
+      SJYX = #{sjyx,jdbcType=NUMERIC},
+      STATE1 = #{state1,jdbcType=NUMERIC},
+      STATE2 = #{state2,jdbcType=NUMERIC},
+      STATE3 = #{state3,jdbcType=NUMERIC},
+      STATE4 = #{state4,jdbcType=NUMERIC},
+      STATE5 = #{state5,jdbcType=NUMERIC},
+      STATE6 = #{state6,jdbcType=NUMERIC},
+      STATE7 = #{state7,jdbcType=NUMERIC},
+      STATE8 = #{state8,jdbcType=NUMERIC},
+      STATE9 = #{state9,jdbcType=NUMERIC},
+      STATE10 = #{state10,jdbcType=NUMERIC},
+      STATE11 = #{state11,jdbcType=NUMERIC},
+      STATE12 = #{state12,jdbcType=NUMERIC},
+      STATE13 = #{state13,jdbcType=NUMERIC},
+      STATE14 = #{state14,jdbcType=NUMERIC},
+      STATE15 = #{state15,jdbcType=NUMERIC},
+      STATE16 = #{state16,jdbcType=NUMERIC},
+      XXLX = #{xxlx,jdbcType=NUMERIC},
+      HTLX = #{htlx,jdbcType=NUMERIC},
+      BKSYY = #{bksyy,jdbcType=VARCHAR},
+      GIS_LOCK = #{gisLock,jdbcType=NUMERIC},
+      SFGGSS = #{sfggss,jdbcType=NUMERIC},
+      ISFSW = #{isfsw,jdbcType=NUMERIC},
+      FSWLX = #{fswlx,jdbcType=VARCHAR},
+      FWMC = #{fwmc,jdbcType=VARCHAR},
+      BZ = #{bz,jdbcType=VARCHAR},
+      FJ = #{fj,jdbcType=VARCHAR},
+      ZYMJ = #{zymj,jdbcType=VARCHAR},
+      INSERTTIME = #{inserttime,jdbcType=DATE},
+      HT_TYPE = #{htType,jdbcType=VARCHAR},
+      ROW_TIMESTAMP = #{rowTimestamp,jdbcType=DATE},
+      YHSZL = #{yhszl,jdbcType=VARCHAR},
+      ZT = #{zt,jdbcType=VARCHAR},
+      ADVANCE_STATE = #{advanceState,jdbcType=NUMERIC},
+      DELETE_TIME = #{deleteTime,jdbcType=TIMESTAMP},
+      EXAMINE_TIME = #{examineTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      VENDIBILITY_STATE = #{vendibilityState,jdbcType=NUMERIC},
+      CREATE_USER_ID = #{createUserId,jdbcType=NUMERIC},
+      EXAMINE_USER_ID = #{examineUserId,jdbcType=NUMERIC},
+      LPHS_LSHHD = #{lphsLshhd,jdbcType=NUMERIC},
+      LPHS_LSHQD = #{lphsLshqd,jdbcType=VARCHAR},
+      JZJG = #{jzjg,jdbcType=VARCHAR},
+      CB = #{cb,jdbcType=VARCHAR},
+      DJZT = #{djzt,jdbcType=NUMERIC},
+      SZL = #{szl,jdbcType=VARCHAR}
+    where LPHS_LSH = #{lphsLsh,jdbcType=NUMERIC}
+  </update>
+  <!--根据楼幢流水号查询出下面所有所属户室信息-->
+  <select id="findLphs" parameterType="web.boot.pj.entity.house.Lphs" resultMap="BaseResultMapJoin">
+    select 
+    <include refid="Base_Column_List" />
+    from REGISTRATION.LPHS left join REGISTRATION.HOUSEANDHOUSE on LPHS.LPHS_LSH = HOUSEANDHOUSE.LPCSHS_LSH
+    where LPHS.LPZ_LSH = #{lpzLsh,jdbcType=NUMERIC} and LPHS.ISFSW=1
+  </select>
+  
+  <!-- 计算楼盘住宅套数 -->
+  <select id="countZzts" resultType="Long">
+  
+    select count(*) from registration.lphs t 
+    where t.lpz_lsh = #{0} 
+    and t.fwyt='住宅' 
+    and t.isfsw &lt;&gt; 1
+    
+  </select>
+  
+</mapper>

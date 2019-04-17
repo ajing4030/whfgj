@@ -1,0 +1,17 @@
+F:\IDEA\whfgj-two\src\main\java\web\boot\pj\controller\house\LphsController.java
+
+F:\IDEA\whfgj-two\src\main\java\web\boot\pj\entity\house\HouseAndHouse.java  //增加字段permission;  //用于区分，是开发办绑定还是企业销售员绑定   null 或者 0是开发办 ,1是销售员绑定
+
+
+F:\IDEA\whfgj-two\src\main\java\web\boot\pj\entity\house\HouseAndHouseExample.java
+
+
+F:\IDEA\whfgj-two\src\main\java\web\boot\pj\mapper\fgj\house\sql\HouseAndHouseMapper.xml
+
+
+
+
+
+
+
+

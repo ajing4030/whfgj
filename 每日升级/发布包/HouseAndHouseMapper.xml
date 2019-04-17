@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="web.boot.pj.mapper.fgj.house.HouseAndHouseMapper">
+  <resultMap id="BaseResultMap" type="web.boot.pj.entity.house.HouseAndHouse">
+    <id column="LPHS_LSH" jdbcType="NUMERIC" property="lphsLsh" />
+    <id column="LPCSHS_LSH" jdbcType="NUMERIC" property="lpcshsLsh" />
+    <result column="PERMISSION" jdbcType="NUMERIC" property="permission" />
+    <result column="LPZLSH" jdbcType="NUMERIC" property="lpzlsh" />
+    <result column="CSLX" jdbcType="VARCHAR" property="cslx" />
+    <result column="ROW_TIMESTAMP" jdbcType="DATE" property="rowTimestamp" />
+    <!-- <association property="lpz" column="LPZLSH" select="web.boot.pj.mapper.fgj.house.LpzMapper.findById" /> -->
+    <!-- fetchType：lazy 懒加载  eager 立即加载 -->
+    <association property="lphs" column="LPCSHS_LSH" fetchType="lazy" select="web.boot.pj.mapper.fgj.house.LphsMapper.findById" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    LPHS_LSH, LPCSHS_LSH, LPZLSH, CSLX, ROW_TIMESTAMP
+  </sql>
+  <select id="findByExample" parameterType="web.boot.pj.entity.house.HouseAndHouseExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from REGISTRATION.HOUSEANDHOUSE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+
+
+
+  <select id="findById" parameterType="web.boot.pj.entity.house.HouseAndHouseKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from REGISTRATION.HOUSEANDHOUSE
+    where LPHS_LSH = #{lphsLsh,jdbcType=NUMERIC}
+      and LPCSHS_LSH = #{lpcshsLsh,jdbcType=NUMERIC}
+  </select>
+  
+  <select id="findByLphslsh" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from REGISTRATION.HOUSEANDHOUSE
+    where LPHS_LSH = #{lphsLsh,jdbcType=NUMERIC} order by LPCSHS_LSH
+  </select>
+
+
+
+  <select id="findByClphs" parameterType="web.boot.pj.entity.house.HouseAndHouse" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from REGISTRATION.HOUSEANDHOUSE
+    where LPHS_LSH = #{lphsLsh,jdbcType=NUMERIC}  and  PERMISSION != #{permission,jdbcType=NUMERIC}
+  </select>
+  
+  <select id="findByLpzlsh" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from REGISTRATION.HOUSEANDHOUSE
+    where LPZLSH = #{lpzlsh,jdbcType=NUMERIC} order by LPHS_LSH
+  </select>
+  
+  <!-- 判断是否已经关联，来改变列表颜色 -->
+  <select id="findByLish"   parameterType="web.boot.pj.entity.house.HouseAndHouseExample" resultType="java.lang.Long">
+    select 
+    count(*)
+    from REGISTRATION.HOUSEANDHOUSE
+    where LPHS_LSH = #{lphsLsh,jdbcType=NUMERIC}
+     or LPCSHS_LSH = #{lpcshsLsh,jdbcType=NUMERIC}
+  </select>
+  
+  
+  
+   <!-- 取消关联查询 -->
+  <select id="findByQxLish"   parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from REGISTRATION.HOUSEANDHOUSE
+    where LPHS_LSH = #{lphsLsh,jdbcType=NUMERIC}
+     or LPCSHS_LSH = #{lpcshsLsh,jdbcType=NUMERIC}
+  </select>
+  
+  
+    <!-- 取消关联 -->
+    <delete id="deleteRelate" parameterType="web.boot.pj.entity.house.HouseAndHouseKey">
+     delete from REGISTRATION.HOUSEANDHOUSE
+     where LPHS_LSH = #{lphsLsh,jdbcType=NUMERIC}
+     or LPCSHS_LSH = #{lpcshsLsh,jdbcType=NUMERIC}
+    </delete>
+    
+    
+    <!-- 根据户室流水号查询一个实体 -->
+   <select id="findRelate"   resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from REGISTRATION.HOUSEANDHOUSE
+    where LPHS_LSH = #{lphsLsh,jdbcType=NUMERIC}
+     or LPCSHS_LSH = #{lpcshsLsh,jdbcType=NUMERIC}
+  </select>
+  
+  
+  
+  
+  <delete id="deleteById" parameterType="web.boot.pj.entity.house.HouseAndHouseKey">
+    delete from REGISTRATION.HOUSEANDHOUSE
+    where LPHS_LSH = #{lphsLsh,jdbcType=NUMERIC}
+      and LPCSHS_LSH = #{lpcshsLsh,jdbcType=NUMERIC}
+  </delete>
+
+  <delete id="deleteDataByExample" parameterType="web.boot.pj.entity.house.HouseAndHouseExample">
+    delete from REGISTRATION.HOUSEANDHOUSE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+
+
+
+  <delete id="deleteDataByPermission" parameterType="web.boot.pj.entity.house.HouseAndHouseExample">
+    delete from REGISTRATION.HOUSEANDHOUSE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+
+
+
+  <insert id="insertData" parameterType="web.boot.pj.entity.house.HouseAndHouse">
+    insert into REGISTRATION.HOUSEANDHOUSE (LPHS_LSH, LPCSHS_LSH, LPZLSH, 
+      CSLX, ROW_TIMESTAMP)
+    values (#{lphsLsh,jdbcType=NUMERIC}, #{lpcshsLsh,jdbcType=NUMERIC}, #{lpzlsh,jdbcType=NUMERIC}, 
+      #{cslx,jdbcType=VARCHAR}, #{rowTimestamp,jdbcType=DATE})
+  </insert>
+  <insert id="insertBatchData" parameterType="java.util.List">
+    insert into REGISTRATION.HOUSEANDHOUSE (LPHS_LSH, LPCSHS_LSH, LPZLSH, PERMISSION,
+      CSLX, ROW_TIMESTAMP)
+    <foreach collection="list" item="item" index="index" open="(" close=")" separator="union" >
+		<![CDATA[
+	        select 
+		        #{item.lphsLsh,jdbcType=NUMERIC}, #{item.lpcshsLsh,jdbcType=NUMERIC}, #{item.lpzlsh,jdbcType=NUMERIC},
+		        #{item.permission,jdbcType=NUMERIC},
+	      		#{item.cslx,jdbcType=VARCHAR}, #{item.rowTimestamp,jdbcType=DATE}
+	        from dual
+	    ]]>
+    </foreach>
+  </insert>
+  <insert id="insertDataSelective" parameterType="web.boot.pj.entity.house.HouseAndHouse">
+    insert into REGISTRATION.HOUSEANDHOUSE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lphsLsh != null">
+        LPHS_LSH,
+      </if>
+      <if test="lpcshsLsh != null">
+        LPCSHS_LSH,
+      </if>
+      <if test="lpzlsh != null">
+        LPZLSH,
+      </if>
+      <if test="cslx != null">
+        CSLX,
+      </if>
+      <if test="rowTimestamp != null">
+        ROW_TIMESTAMP,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lphsLsh != null">
+        #{lphsLsh,jdbcType=NUMERIC},
+      </if>
+      <if test="lpcshsLsh != null">
+        #{lpcshsLsh,jdbcType=NUMERIC},
+      </if>
+      <if test="lpzlsh != null">
+        #{lpzlsh,jdbcType=NUMERIC},
+      </if>
+      <if test="cslx != null">
+        #{cslx,jdbcType=VARCHAR},
+      </if>
+      <if test="rowTimestamp != null">
+        #{rowTimestamp,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countDataByExample" parameterType="web.boot.pj.entity.house.HouseAndHouseExample" resultType="java.lang.Long">
+    select count(*) from REGISTRATION.HOUSEANDHOUSE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateDataByExampleSelective" parameterType="map">
+    update REGISTRATION.HOUSEANDHOUSE
+    <set>
+      <if test="record.lphsLsh != null">
+        LPHS_LSH = #{record.lphsLsh,jdbcType=NUMERIC},
+      </if>
+      <if test="record.lpcshsLsh != null">
+        LPCSHS_LSH = #{record.lpcshsLsh,jdbcType=NUMERIC},
+      </if>
+      <if test="record.lpzlsh != null">
+        LPZLSH = #{record.lpzlsh,jdbcType=NUMERIC},
+      </if>
+      <if test="record.cslx != null">
+        CSLX = #{record.cslx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rowTimestamp != null">
+        ROW_TIMESTAMP = #{record.rowTimestamp,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateDataByExample" parameterType="map">
+    update REGISTRATION.HOUSEANDHOUSE
+    set LPHS_LSH = #{record.lphsLsh,jdbcType=NUMERIC},
+      LPCSHS_LSH = #{record.lpcshsLsh,jdbcType=NUMERIC},
+      LPZLSH = #{record.lpzlsh,jdbcType=NUMERIC},
+      CSLX = #{record.cslx,jdbcType=VARCHAR},
+      ROW_TIMESTAMP = #{record.rowTimestamp,jdbcType=DATE}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateDataByIdSelective" parameterType="web.boot.pj.entity.house.HouseAndHouse">
+    update REGISTRATION.HOUSEANDHOUSE
+    <set>
+      <if test="lpzlsh != null">
+        LPZLSH = #{lpzlsh,jdbcType=NUMERIC},
+      </if>
+      <if test="cslx != null">
+        CSLX = #{cslx,jdbcType=VARCHAR},
+      </if>
+      <if test="rowTimestamp != null">
+        ROW_TIMESTAMP = #{rowTimestamp,jdbcType=DATE},
+      </if>
+    </set>
+    where LPHS_LSH = #{lphsLsh,jdbcType=NUMERIC}
+      and LPCSHS_LSH = #{lpcshsLsh,jdbcType=NUMERIC}
+  </update>
+  <update id="updateDataById" parameterType="web.boot.pj.entity.house.HouseAndHouse">
+    update REGISTRATION.HOUSEANDHOUSE
+    set LPZLSH = #{lpzlsh,jdbcType=NUMERIC},
+      CSLX = #{cslx,jdbcType=VARCHAR},
+      ROW_TIMESTAMP = #{rowTimestamp,jdbcType=DATE}
+    where LPHS_LSH = #{lphsLsh,jdbcType=NUMERIC}
+      and LPCSHS_LSH = #{lpcshsLsh,jdbcType=NUMERIC}
+  </update>
+</mapper>

@@ -1,0 +1,128 @@
+﻿$(document).ready(function () {
+    $('#Top .Toolbar1 .CentreBox .Menu .List1 li').mouseenter(function () {
+        var index = $(this).parent().children().index(this);
+        $(this).parent().children().each(function () {
+            if ($(this).hasClass('Select')) {
+                $(this).removeClass('Select');
+            }
+        });
+        $(this).addClass('Select');
+
+        $('#Top .Toolbar2 .CentreBox .Menu').each(function () {
+            if (!$(this).hasClass('Hide')) {
+                $(this).addClass('Hide');
+            }
+        });
+        $('#Top .Toolbar2 .CentreBox .Menu').eq(index).removeClass('Hide');
+    });
+
+    $('#Top .Toolbar2 .CentreBox .Menu ul li a').mouseenter(function () {
+        var index = $('#Top .Toolbar2 .CentreBox .Menu ul li a').index(this);
+        $('#Top .Toolbar2 .CentreBox .Menu ul li').each(function () {
+            if ($(this).hasClass('Select')) {
+                $(this).removeClass('Select');
+            }
+        });
+        $(this).parent().addClass('Select');
+    });
+});
+
+// 设置为主页 
+function SetHome(obj, vrl) {
+    try {
+        obj.style.behavior = 'url(#default#homepage)'; obj.setHomePage(vrl);
+    }
+    catch (e) {
+        if (window.netscape) {
+            try {
+                netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+            }
+            catch (e) {
+                alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。");
+            }
+            var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+            prefs.setCharPref('browser.startup.homepage', vrl);
+        } else {
+            alert("您的浏览器不支持，请按照下面步骤操作：1.打开浏览器设置。2.点击设置网页。3.输入：" + vrl + "点击确定。");
+        }
+    }
+}
+// 加入收藏 兼容360和IE6 
+function AddFavorite(sTitle, sURL) {
+    try {
+        window.external.addFavorite(sURL, sTitle);
+    }
+    catch (e) {
+        try {
+            window.sidebar.addPanel(sTitle, sURL, "");
+        }
+        catch (e) {
+            alert("加入收藏失败，请使用Ctrl+D进行添加");
+        }
+    }
+}
+//显示浮动窗口
+function ShowWindow(obj) {
+    var tit = $(obj).attr("title");
+    var box = $(obj).html();
+    dialog({
+        width: 500,
+        title: tit,
+        content: box,
+        okValue: '确定',
+        ok: function () { }
+    }).showModal();
+}
+
+function Exit() {
+    dialog({
+        id: 'faceId',
+        title: '系统提示',
+        content: '超时了，请重新登陆！',
+        background: '#000',
+        icon: 'warning',
+        opacity: 0.1,
+        lock: true,
+        ok: function () {location.href = '/logout.aspx';   },
+        okVal: '确定', cancel: false, cancelVal: '取消'
+    });
+    return false;
+}
+/**自应高度**/
+function iframeresize() {
+    resizeU();
+    $(window).resize(resizeU);
+    function resizeU() {
+        var divkuangH = $(window).height();
+        $("#mainshow").height(divkuangH - 184);
+        //导航
+    }
+}
+//只允许输入数字
+function checkNumber(e) {
+    var keynum = window.event ? e.keyCode : e.which;
+    if ((48 <= keynum && keynum <= 57) || (96 <= keynum && keynum <= 105) || keynum == 8) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//只允许输入小数
+function checkForFloat(obj, e) {
+    var isOK = false;
+    var key = window.event ? e.keyCode : e.which;
+    if ((key > 95 && key < 106) || //小键盘上的0到9  
+        (key > 47 && key < 60) ||  //大键盘上的0到9  
+        (key == 110 && obj.value.indexOf(".") < 0) || //小键盘上的.而且以前没有输入.  
+        (key == 190 && obj.value.indexOf(".") < 0) || //大键盘上的.而且以前没有输入.  
+         key == 8 || key == 9 || key == 46 || key == 37 || key == 39) {
+        isOK = true;
+    } else {
+        if (window.event) { //IE
+            e.returnValue = false;   //event.returnValue=false 效果相同.    
+        } else { //Firefox 
+            e.preventDefault();
+        }
+    }
+    return isOK;
+}
