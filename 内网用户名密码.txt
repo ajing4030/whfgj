@@ -3,14 +3,15 @@
 192.168.192.202
 
 
-
 pc端网址：http://192.168.192.202:8090/whfgj/webPage/pc/html/advanceSale.html
 app网址：http://192.168.192.202:8090/whfgj/webPage/wx/html/index.html
 
 
-正式环境：107101  威海光威置业
-133
 
+pc端网址：http://localhost:8090/whfgj/webPage/pc/html/advanceSale.html
+app网址：http://localhost:8090/whfgj/webPage/wx/html/index.html
+
+正式环境：107101  威海光威置业
 
 
 648212833  赵经理qq -不动产接口对接人 ；	15666308976 林栋
@@ -26,6 +27,18 @@ app网址：http://192.168.192.202:8090/whfgj/webPage/wx/html/index.html
 预告登记、抵押:	2019005397,2019005414,2019005417    校验“预告登记”+qszt=临时、现势
 
 接口返回信息：临时、现势、历史、变更，更正，补证，换证
+ 
+2018093933  异议
+2013088780  抵押
+
+
+2010097061  异议、抵押
+
+
+
+
+
+
 
 不动产土地查封：
 fwlsh：2014021096
@@ -37,23 +50,39 @@ fwlsh:
 保障房：新老身份证问题：老身份证15位去掉年份19和最后1位
 王庆云、370630194301205011
 
-
-
 expdp whfgj/whfgj@orcl schemas=ys dumpfile=ys_20190417.dmp DIRECTORY=expdata_dir
 
-
-
-
-
 ukey 18515216353????张志勇-坚石诚信  产品型号：ET199 共800支（全部金属壳，300支打威海网签的logo,500支打时空云图的logo）
-
 pageOffice 卓正 联系人田文娟-15810217283  专业版 一套
 
-单位名称
+
+
+
+企业财务：111001、ceshi01
+征收科管理员：9020
+征收科操作员：9067
+楼盘管理员：9057
+楼盘操作员：9065
+监管中心科长：9019
+监管中心操作员：9025
+市场监管：9017
+银行管理员：209701
+开发办操作员：9064
+棚改科科长：9032
+棚改科操作员：9033
+
+
+中信银行：zxyh
 
 
 
 
-
-
+oracle锁表：
+--查看
+select a.object_name,b.session_id,c.serial#,c.program,c.username,c.command,c.machine,c.lockwait
+from all_objects a,v$locked_object b,v$session c where a.object_id=b.object_id and c.sid=b.session_id;
+--解锁
+alter system kill session'session_id,serial#';
+--例句
+alter system kill session'453,10316';
 
