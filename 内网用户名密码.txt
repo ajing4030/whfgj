@@ -3,6 +3,10 @@
 192.168.192.202
 
 
+
+1267984265/zca783
+
+
 pc端网址：http://192.168.192.202:8090/whfgj/webPage/pc/html/advanceSale.html
 app网址：http://192.168.192.202:8090/whfgj/webPage/wx/html/index.html
 
@@ -11,9 +15,21 @@ app网址：http://192.168.192.202:8090/whfgj/webPage/wx/html/index.html
 pc端网址：http://localhost:8090/whfgj/webPage/pc/html/advanceSale.html
 app网址：http://localhost:8090/whfgj/webPage/wx/html/index.html
 
-正式环境：107101  威海光威置业
+
+手动转件路径：httype  合同类型1预售2现售，htbh（合同编号）,hslsh（户室流水号）
+http://localhost:8090/whfgj/rest/fg/testwfYs?httype=2&htbh=201920000016&hslsh=2017061346
+
+正式环境：
+http://192.168.192.203:8091/whkfb/rest/fg/testwfYs?httype=1&htbh=201910001276&hslsh=2017049600
 
 
+正式环境：
+107101  威海光威置业
+106601 工友企业
+
+114102  长峰
+
+125501  鑫仁泉房地产
 
 
 648212833  赵经理qq -不动产接口对接人 ；	15666308976 林栋
@@ -56,19 +72,30 @@ fwlsh:
 保障房：新老身份证问题：老身份证15位去掉年份19和最后1位
 王庆云、370630194301205011
 
+---导出数据
 expdp whfgj/whfgj@orcl schemas=ys dumpfile=ys_20190417.dmp DIRECTORY=expdata_dir
+
+exp survey/survey@213.234.12.32/mydb file=D:\example.dmp
+
 
 ukey 18515216353????张志勇-坚石诚信  产品型号：ET199 共800支（全部金属壳，300支打威海网签的logo,500支打时空云图的logo）
 pageOffice 卓正 联系人田文娟-15810217283  专业版 一套
 
 
+-----rp8激活码
+https://blog.csdn.net/qq_23065333/article/details/80840188
+
+
+
+
 
 
 企业财务：111001、ceshi01
+销售经理：111099
 征收科管理员：9020
-征收科操作员：9067
+征收科操作员:	9067
 楼盘管理员：9057
-楼盘操作员：9065
+楼盘操作员：	9065
 监管中心科长：9019
 监管中心操作员：9025
 市场监管：9017
@@ -77,8 +104,9 @@ pageOffice 卓正 联系人田文娟-15810217283  专业版 一套
 棚改科科长：9032
 棚改科操作员：9033
 
-
-中信银行：zxyh
+招商银行	205701
+农业银行	202401
+中信银行：zxyh  盘福园
 
 
 
