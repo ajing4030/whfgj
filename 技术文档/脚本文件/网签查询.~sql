@@ -1,0 +1,6 @@
+--根据预售证号查询已经开通的网签数据
+select t.*, nvl(l.hsms,'无') as hsms ,nvl(l.hszl,'无')as  hszl,nvl(l.myc,'无')as myc,
+                  nvl(l.jzmj,0)as jzmj,nvl(l.fwyt,'无')as fwyt,
+                         l.lphs_lsh,l.xxlx,l.STATE16 from REGISTRATION.PRESELLPERMISSIONDETAIL t 
+          join REGISTRATION.Lphs l on t.fwlsh = l.lphs_lsh
+          where t.ysxklsh = 20190046

@@ -1,0 +1,57 @@
+ 
+------账户查询
+
+---总余额
+select nvl(sum(t.remainder),0) 总余额 from ys.account t  
+--账户余额、总收入、总支出
+select t.account_no,nvl(t.remainder,0) 账户余额,nvl(sum(tail.deposit),0) 总收入,nvl(sum(tail.pay),0) 总支出
+ from ys.account t join ys.accountdetail tail on t.account_no=tail.accountno group by t.account_no,t.remainder
+
+--总利息余额 /账户利息余额
+select  (select nvl(sum(t.remainder),0)  from ys.account t )+
+  ( select nvl(sum(p.pay),0) from ys.pay p where p.state=3 and p.zlsh>0)+
+  ( select nvl(sum(r.refund),0) from ys.refund r where r.state=3 )-
+  (select nvl(sum(n.deposit),0) from ys.notice n where  n.state=3)
+  from dual ;
+  
+------------坐落查询
+---总余额
+select nvl(sum(t.remainder),0) 总余额 from ys.account t 
+
+------总存入、总支出
+select  sum(decode(hz.lx,'sr',hz.je,0)) 总存入 ,
+sum(decode(hz.lx,'hb',hz.je,0))+sum(decode(hz.lx,'tk',hz.je,0)) 总支出
+from (
+select  acc.account_no,nt.zlsh,nvl(sum(nt.deposit),0) je,'sr' lx from ys.account acc
+join ys.notice nt on acc.account_no=nt.account_no and nt.state=3
+ group by acc.account_no,nt.zlsh 
+ union all
+select  acc.account_no,p.zlsh,nvl(sum(p.pay),0) je,'hb' lx from ys.account acc
+join ys.pay p on acc.account_no=p.accountno and p.state=3 and p.zlsh>0
+ group by acc.account_no,p.zlsh
+ union all
+ select  acc.account_no,r.zlsh,nvl(sum(r.refund),0) je,'tk' lx from ys.account acc
+join ys.refund r on acc.account_no=r.account_no and r.state=3 
+ group by acc.account_no,r.zlsh) hz
+
+
+---收入、划拨、退款
+select  hz.account_no,hz.zlsh,sum(decode(hz.lx,'sr',hz.je,0)) 收入 ,
+sum(decode(hz.lx,'hb',hz.je,0)) 划拨,sum(decode(hz.lx,'tk',hz.je,0)) 退款
+from (
+select  acc.account_no,nt.zlsh,nvl(sum(nt.deposit),0) je,'sr' lx from ys.account acc
+join ys.notice nt on acc.account_no=nt.account_no and nt.state=3
+ group by acc.account_no,nt.zlsh 
+ union all
+select  acc.account_no,p.zlsh,nvl(sum(p.pay),0) je,'hb' lx from ys.account acc
+join ys.pay p on acc.account_no=p.accountno and p.state=3 and p.zlsh>0
+ group by acc.account_no,p.zlsh
+ union all
+ select  acc.account_no,r.zlsh,nvl(sum(r.refund),0) je,'tk' lx from ys.account acc
+join ys.refund r on acc.account_no=r.account_no and r.state=3 
+ group by acc.account_no,r.zlsh) hz
+ group by hz.account_no,hz.zlsh;
+
+
+ 
+ 

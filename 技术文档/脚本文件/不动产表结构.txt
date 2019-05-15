@@ -1,0 +1,82 @@
+-- Create table
+create table FG_SYQDJ
+(
+  caselsh  NVARCHAR2(32),
+  ywlx     NVARCHAR2(50),
+  syqr     NVARCHAR2(256),
+  syqrzjlx NVARCHAR2(50),
+  syqrzjhm NVARCHAR2(50),
+  bdcqzh   NVARCHAR2(1000),
+  ybdcqzh  NVARCHAR2(1000),
+  fwzl     NVARCHAR2(256),
+  slsj     DATE,
+  dbsj     DATE,
+  gdsj     DATE,
+  jyjg     NUMBER(18,2),
+  sjtjsj   DATE,
+  zt       NUMBER(1),
+  bz       NVARCHAR2(1000),
+  ycaselsh NVARCHAR2(32),
+  fcywid   NVARCHAR2(20),
+  cqly     NVARCHAR2(200),
+  fwlb     NVARCHAR2(200),
+  kid      NVARCHAR2(50) not null,
+  fwxz     NVARCHAR2(200),
+  zjmj     NUMBER(15,2),
+  qtmj     NUMBER(15,2),
+  lsh      NVARCHAR2(20),
+  isdelete NVARCHAR2(1),
+  ywlxid   NVARCHAR2(10),
+  ajzt     NVARCHAR2(2),
+  zxsj     DATE,
+  zxywh    NVARCHAR2(32),
+  zxlsh    NVARCHAR2(20),
+  ysyqr    NVARCHAR2(500),
+  fdcjyjg  NUMBER(15,4)
+)
+tablespace ZC_BDC_EXCHANGE
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the columns 
+comment on column FG_SYQDJ.zjmj
+  is '住宅面积';
+comment on column FG_SYQDJ.qtmj
+  is '其他面积';
+comment on column FG_SYQDJ.isdelete
+  is '1 该记录已删除';
+-- Create/Recreate indexes 
+create index FG_SYQDJ_YWH on FG_SYQDJ (CASELSH)
+  tablespace ZC_BDC_EXCHANGE
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table FG_SYQDJ
+  add constraint FG_SYQDJ_PK primary key (KID)
+  using index 
+  tablespace ZC_BDC_EXCHANGE
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );

@@ -1,0 +1,11 @@
+--查询预售合同sql
+SELECT * FROM REGISTRATION.LPHS  where EXISTS (SELECT ts.lpzlsh FROM REGISTRATION.Lpz_Practitioners ts 
+WHERE ts.lpzlsh = lpz_lsh AND ts.ztid = 313) AND CONTRACT_HOUSE_LOCK IS NULL AND ISFSW = 0 AND STATE9 = 2 
+AND DJZT = 2 AND STATE13 <> 1 AND XXLX = 1 AND 
+STATE16 = 0 AND XXLX = 1 AND HSZL LIKE '%盘福园%'
+
+--查询现售合同sql
+SELECT * FROM REGISTRATION.LPHS WHERE (EXISTS (SELECT ts.lpzlsh FROM REGISTRATION.Lpz_Practitioners ts
+ WHERE ts.lpzlsh = lpz_lsh AND ts.ztid = 313) AND CONTRACT_HOUSE_LOCK IS NULL AND ISFSW = 0 AND STATE9 = 2 
+ AND DJZT = 2 AND STATE13 <> 1 AND EXISTS (SELECT 0 FROM registration.presellpermission t 
+WHERE t.cqzh IS NOT NULL AND LPZ_LSH = t.zlsh AND t.cqzh = '666') AND XXLX = 2) 
